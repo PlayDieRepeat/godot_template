@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm0vxie7dk0oa"]
+
+[ext_resource type="Script" path="res://scripts/systems/boot_flow.gd" id="1_um4t2"]
+[ext_resource type="PackedScene" uid="uid://c3tch322g3hhb" path="res://scenes/menus/start_menu.tscn" id="2_2gho7"]
+[ext_resource type="PackedScene" uid="uid://bacvkh6dk4dm5" path="res://scenes/menus/credits_menu.tscn" id="3_7b78x"]
+[ext_resource type="PackedScene" uid="uid://efyl535owuk0" path="res://scenes/menus/options_menu.tscn" id="4_5d0p0"]
+[ext_resource type="PackedScene" uid="uid://di3ut8c68gk7h" path="res://scenes/levels/level1.tscn" id="4_yf75c"]
+
+[node name="BootFlow" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_um4t2")
+start_menu_packed_scene = ExtResource("2_2gho7")
+credits_menu_packed_scene = ExtResource("3_7b78x")
+options_menu_packed_scene = ExtResource("4_5d0p0")
+first_level_packed_scene = ExtResource("4_yf75c")
