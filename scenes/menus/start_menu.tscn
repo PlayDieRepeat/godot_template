@@ -104,7 +104,11 @@ text = "Controls:  ESC Pause/Unpause
 WASD Move, E Action"
 horizontal_alignment = 1
 
+[connection signal="mouse_entered" from="CenterContainer/AspectRatioContainer/VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/AspectRatioContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/AspectRatioContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/AspectRatioContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/AspectRatioContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/AspectRatioContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/AspectRatioContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/AspectRatioContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

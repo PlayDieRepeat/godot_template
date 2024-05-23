@@ -19,6 +19,10 @@ func ready_start_menu() -> void:
 	start_menu_instance.connect("credits_button_pressed", _on_credits_button_pressed)
 	start_menu_instance.connect("options_button_pressed", _on_options_button_pressed)
 	start_menu_instance.connect("quit_button_pressed", _on_quit_button_pressed)
+	start_menu_instance.connect("start_button_hovered", _on_start_button_hovered)
+	start_menu_instance.connect("credits_button_hovered", _on_credits_button_hovered)
+	start_menu_instance.connect("options_button_hovered", _on_options_button_hovered)
+	start_menu_instance.connect("quit_button_hovered", _on_quit_button_hovered)
 
 func ready_credits_menu() -> void:
 	credits_menu_instance = credits_menu_packed_scene.instantiate()
@@ -55,6 +59,18 @@ func _on_options_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	$BloopPlayer.play()
 	get_tree().quit()
+
+func _on_start_button_hovered() -> void:
+	$ZipUpPlayer.play()
+
+func _on_credits_button_hovered() -> void:
+	$ZipUpPlayer.play()
+
+func _on_options_button_hovered() -> void:
+	$ZipUpPlayer.play()
+
+func _on_quit_button_hovered() -> void:
+	$ZipUpPlayer.play()
 
 #
 # CREDITS MENU HOOKUPS
