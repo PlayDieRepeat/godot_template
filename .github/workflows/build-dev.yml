@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        platform: [windows, mac, web]
+        platform: [windows, web]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
