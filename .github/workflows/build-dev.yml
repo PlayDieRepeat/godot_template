@@ -1,29 +1,85 @@
-name: Build Godot Project
-
-on:
+name: "godot-ci export_dev"
+on: 
   push:
-    branches: ['dev']
+   branches: ['dev']
+
+env:
+  GODOT_VERSION: 4.2.2
+  EXPORT_NAME: jam_dev
+  PROJECT_PATH: godot_template
 
 jobs:
-  Godot:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: [windows, web]
+  export-windows:
+    name: windows
+    runs-on: ubuntu-20.04
+    container:
+      image: barichello/godot-ci:4.2.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           lfs: true
-      - name: Dev Build
-        id: dev_build
-        uses: manleydev/build-godot-action@f759ed7f8fcb5137cb70873ecf663aa8a1bd998b
-        with:
-          name: jam_dev_${{ matrix.platform }}
-          preset: ${{ matrix.platform }}
-          debugMode: "true"
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      - name: Windows Build
+        run: |
+          mkdir -v -p build/windows
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v1
         with:
-          name: Client - ${{ matrix.platform }}
-          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+          name: windows
+          path: build/windows
+
+  export-web:
+    name: web
+    runs-on: ubuntu-20.04
+    container:
+      image: barichello/godot-ci:4.2.2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      - name: Web Build
+        run: |
+          mkdir -v -p build/web
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "HTML5" ../build/web/index.html
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: web
+          path: build/web
+
+  export-mac:
+    name: mac
+    runs-on: ubuntu-20.04
+    container:
+      image: barichello/godot-ci:4.2.2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      - name: Mac Build
+        run: |
+          mkdir -v -p build/mac
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "Mac OSX" ../build/mac/$EXPORT_NAME.zip
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: mac
+          path: build/mac
