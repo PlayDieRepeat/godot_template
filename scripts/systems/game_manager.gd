@@ -38,18 +38,22 @@ func ready_first_level() -> void:
 #
 # START MENU HOOKUPS
 func _on_start_button_pressed() -> void:
+	$BloopPlayer.play()
 	remove_child(start_menu_instance)
 	ready_first_level()
 
 func _on_credits_button_pressed() -> void:
+	$BloopPlayer.play()
 	remove_child(start_menu_instance)
 	ready_credits_menu()
 
 func _on_options_button_pressed() -> void:
+	$BloopPlayer.play()
 	remove_child(start_menu_instance)
 	ready_options_menu()
 
 func _on_quit_button_pressed() -> void:
+	$BloopPlayer.play()
 	get_tree().quit()
 
 #
@@ -69,3 +73,4 @@ func _on_back_to_start_from_options() -> void:
 func _on_back_to_start_from_pause_menu() -> void:
 	remove_child(first_level_instance)
 	ready_start_menu()
+
