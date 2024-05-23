@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsaj00rb64dcy"]
+
+[ext_resource type="Script" path="res://scripts/systems/game_manager.gd" id="1_38l3e"]
+[ext_resource type="PackedScene" uid="uid://c3tch322g3hhb" path="res://scenes/menus/start_menu.tscn" id="2_hgpi5"]
+[ext_resource type="PackedScene" uid="uid://bacvkh6dk4dm5" path="res://scenes/menus/credits_menu.tscn" id="3_smb03"]
+[ext_resource type="PackedScene" uid="uid://efyl535owuk0" path="res://scenes/menus/options_menu.tscn" id="4_dvv5b"]
+[ext_resource type="PackedScene" uid="uid://di3ut8c68gk7h" path="res://scenes/levels/level1.tscn" id="5_hnio7"]
+[ext_resource type="AudioStream" uid="uid://doiloh8qyyelr" path="res://assets/audio/sfx/debug/bloop.wav" id="6_srmbe"]
+
+[node name="GameManager" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_38l3e")
+start_menu_packed_scene = ExtResource("2_hgpi5")
+credits_menu_packed_scene = ExtResource("3_smb03")
+options_menu_packed_scene = ExtResource("4_dvv5b")
+first_level_packed_scene = ExtResource("5_hnio7")
+
+[node name="BloopPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_srmbe")
