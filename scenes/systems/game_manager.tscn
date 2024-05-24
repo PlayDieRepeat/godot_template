@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsaj00rb64dcy"]
+[gd_scene load_steps=8 format=3 uid="uid://dsaj00rb64dcy"]
 
 [ext_resource type="Script" path="res://scripts/systems/game_manager.gd" id="1_38l3e"]
 [ext_resource type="PackedScene" uid="uid://c3tch322g3hhb" path="res://scenes/menus/start_menu.tscn" id="2_hgpi5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://efyl535owuk0" path="res://scenes/menus/options_menu.tscn" id="4_dvv5b"]
 [ext_resource type="PackedScene" uid="uid://di3ut8c68gk7h" path="res://scenes/levels/level1.tscn" id="5_hnio7"]
 [ext_resource type="AudioStream" uid="uid://doiloh8qyyelr" path="res://assets/audio/sfx/debug/bloop.wav" id="6_srmbe"]
+[ext_resource type="AudioStream" uid="uid://cq4woxd78jcec" path="res://assets/audio/sfx/debug/zipUp.wav" id="7_5kt2k"]
 
 [node name="GameManager" type="Control"]
 process_mode = 3
@@ -23,3 +24,6 @@ first_level_packed_scene = ExtResource("5_hnio7")
 
 [node name="BloopPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_srmbe")
+
+[node name="ZipUpPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5kt2k")

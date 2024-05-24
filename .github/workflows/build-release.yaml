@@ -1,19 +1,20 @@
-# This action builds and exports the project to multiple platforms on push to the dev branch
+# This action builds and exports the project to multiple platforms on push to the main branch
 
-name: "godot-ci export_dev"
+name: "godot-ci export_release"
 on: 
   push:
-   branches: ['dev']
+   branches: ['main']
 
 env:
   GODOT_VERSION: 4.2.2
   CI_VERSION: 4.2.2
-  EXPORT_NAME: jam_dev
+  EXPORT_NAME: jam
   WIN_CONFIG_NAME: windows
   MAC_CONFIG_NAME: mac
   WEB_CONFIG_NAME: web
   LIN_CONFIG_NAME: linux
   # PROJECT_PATH: godot_template
+  
 
 jobs:
   export-windows:
@@ -33,7 +34,7 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          godot --headless --verbose --export-debug "$WIN_CONFIG_NAME" ./build/windows/$EXPORT_NAME.exe
+          godot --headless --verbose --export-release "$WIN_CONFIG_NAME" ./build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -57,7 +58,7 @@ jobs:
       - name: Web Build
         run: |
           mkdir -v -p build/web
-          godot --headless --verbose --export-debug "WEB_CONFIG_NAME" ./build/web/index.html
+          godot --headless --verbose --export-release "WEB_CONFIG_NAME" ./build/web/index.html
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -81,7 +82,7 @@ jobs:
       - name: Mac Build
         run: |
           mkdir -v -p build/mac
-          godot --headless --verbose --export-debug "MAC_CONFIG_NAME" ./build/mac/$EXPORT_NAME.zip
+          godot --headless --verbose --export-release "MAC_CONFIG_NAME" ./build/mac/$EXPORT_NAME.zip
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
