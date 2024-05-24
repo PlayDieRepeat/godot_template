@@ -14,7 +14,6 @@ env:
   WEB_CONFIG_NAME: web
   LIN_CONFIG_NAME: linux
   # PROJECT_PATH: godot_template
-  
 
 jobs:
   export-windows:
