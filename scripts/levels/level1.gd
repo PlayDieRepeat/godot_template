@@ -2,7 +2,7 @@ extends Node2D
 
 signal back_to_start_from_pause_menu
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Menu"):
 		%PauseMenu.visible = !%PauseMenu.visible
 		get_tree().paused = !get_tree().paused

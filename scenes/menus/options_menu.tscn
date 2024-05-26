@@ -30,8 +30,9 @@ layout_mode = 2
 layout_mode = 2
 text = "OPTIONS"
 
-[node name="BackButton" type="Button" parent="CenterContainer/AspectRatioContainer/VBoxContainer"]
+[node name="BackButton" type="Button" parent="CenterContainer/AspectRatioContainer/VBoxContainer" groups=["Buttons"]]
 layout_mode = 2
+keep_pressed_outside = true
 text = "BACK"
 
 [connection signal="pressed" from="CenterContainer/AspectRatioContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
