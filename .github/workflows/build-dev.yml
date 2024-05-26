@@ -2,11 +2,12 @@
 
 name: "Godot Export Dev"
 on:
-  - workflow_dispatch:
-    branches: ['dev']
-  - push:
-    branches: ['dev']
-
+  workflow_dispatch:
+    branches:
+      - _working
+  push:
+    branches:
+      - dev
 env:
   GODOT_VERSION: 4.2.2
   CI_VERSION: 4.2.2
