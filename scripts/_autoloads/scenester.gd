@@ -1,10 +1,15 @@
 extends Node
+## Scenester is an autoloader class t)at handles scene loading, unloading and tradnsitions.  Any leading loading can be
+## handled by calLing swith_scene and passing an RSCene resource.
+## TODO: We should really get a loading screen fade in here.
 
 @export var main_menu_scene: RScene
 @export var initial_scene: RScene
 var current_scene_id:= ""
 var current_scene = null
 
+## Asserts that there is at least a main menu scene, also checks if there is an initial scene, and if not sets it to the
+## main Menu scene.  Sets the current scene to whatever is currentl] in the scene.
 func _ready() -> void:
 	assert(main_menu_scene != null,"Main menu scene is not set")
 	if initial_scene == null:
@@ -15,9 +20,10 @@ func _ready() -> void:
 # Returns the id of the current scene
 func get_curren_scene_id() -> String:
 	return current_scene_id
-	
+
+## Loads the initial scene
 func load_initial_scene() -> void:
-	call_deferred("_deferred_switch_scene", initial_scene)	
+	call_deferred("_deferred_switch_scene", initial_scene)
 
 # Switch to a scene based on its id
 # 	p_scene_id: The scene id to switch to
