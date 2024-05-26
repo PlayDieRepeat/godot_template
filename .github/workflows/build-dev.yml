@@ -1,26 +1,25 @@
 # This action builds and exports the project to multiple platforms on push to the dev branch
 
-name: "godot-ci export_dev"
-on: 
+name: Godot Export Dev
+on:
+  workflow_dispatch:
   push:
-   branches: ['dev']
-
+    branches:
+      - dev
 env:
   GODOT_VERSION: 4.2.2
-  CI_VERSION: 4.2.2
   EXPORT_NAME: jam_dev
   WIN_CONFIG_NAME: windows
   MAC_CONFIG_NAME: mac
   WEB_CONFIG_NAME: web
   LIN_CONFIG_NAME: linux
-  # PROJECT_PATH: godot_template
 
 jobs:
   export-windows:
     name: Windows Export - Dev
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:${{env.CI_VERSION}}
+      image: barichello/godot-ci:4.2.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -33,7 +32,7 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          godot --headless --verbose --export-debug "${{env.WIN_CONFIG_NAME}}"./build/windows/${{env.EXPORT_NAME}}.exe
+          godot --headless --verbose --export-debug "${{env.WIN_CONFIG_NAME}}" ./build/windows/${{env.EXPORT_NAME}}.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -44,7 +43,7 @@ jobs:
     name: HTML5 Export - Dev
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:${{env.CI_VERSION}}
+      image: barichello/godot-ci:4.2.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -68,7 +67,7 @@ jobs:
     name: MacOS Export - Dev
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:${{env.CI_VERSION}}
+      image: barichello/godot-ci:4.2.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
