@@ -1,10 +1,11 @@
 # This action builds and exports the project to multiple platforms on push to the dev branch
 
-name: "godot-ci export_dev"
-on: 
+name: Godot Export Dev
+on:
+  workflow_dispatch:
   push:
-   branches: ['dev']
-
+    branches:
+      - dev
 env:
   GODOT_VERSION: 4.2.2
   CI_VERSION: 4.2.2
@@ -20,7 +21,7 @@ jobs:
     name: Windows Export - Dev
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:${{env.CI_VERSION}}
+      image: barichello/godot-ci:${{CI_VERSION}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -44,7 +45,7 @@ jobs:
     name: HTML5 Export - Dev
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:${{env.CI_VERSION}}
+      image: barichello/godot-ci:${{CI_VERSION}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -68,7 +69,7 @@ jobs:
     name: MacOS Export - Dev
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:${{env.CI_VERSION}}
+      image: barichello/godot-ci:${{CI_VERSION}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
