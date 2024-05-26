@@ -338,7 +338,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="ReturnButton" type="Button" parent="Buttons/MarginContainer"]
+[node name="ReturnButton" type="Button" parent="Buttons/MarginContainer" groups=["Buttons"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

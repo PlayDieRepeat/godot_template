@@ -11,9 +11,26 @@ config_version=5
 [application]
 
 config/name="godot_template"
-run/main_scene="res://scenes/systems/game_manager.tscn"
+run/main_scene="res://scenes/systems/initializer.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://resources/audio/audio_bus_layout.tres"
+manager/sound/bus="Sound"
+manager/sound/pool_1D_size=16
+manager/sound/pool_2D_size=16
+manager/sound/pool_3D_size=16
+manager/sound/max_polyphony=32
+manager/music/bus="Music"
+
+[autoload]
+
+SoundManager="*res://addons/resonate/sound_manager/sound_manager.gd"
+MusicManager="*res://addons/resonate/music_manager/music_manager.gd"
+Scenester="*res://scenes/_autoloads/scenester.tscn"
+AudioBankRobber="*res://scenes/_autoloads/audio_bank_robber.tscn"
 
 [display]
 
@@ -26,6 +43,10 @@ window/stretch/mode="canvas_items"
 [editor]
 
 export/convert_text_resources_to_binary=false
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/filesystem_drawer/plugin.cfg", "res://addons/resonate/plugin.cfg")
 
 [input]
 
