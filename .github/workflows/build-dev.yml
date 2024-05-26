@@ -1,7 +1,8 @@
 # This action builds and exports the project to multiple platforms on push to the dev branch
 
 name: "godot-ci export_dev"
-on: 
+on:
+  workflow_dispatch:
   push:
    branches: ['dev']
 
