@@ -8,13 +8,11 @@ on:
       - dev
 env:
   GODOT_VERSION: 4.2.2
-  CI_VERSION: 4.2.2
   EXPORT_NAME: jam_dev
   WIN_CONFIG_NAME: windows
   MAC_CONFIG_NAME: mac
   WEB_CONFIG_NAME: web
   LIN_CONFIG_NAME: linux
-  # PROJECT_PATH: godot_template
 
 jobs:
   export-windows:
@@ -34,7 +32,7 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          godot --headless --verbose --export-debug "${{env.WIN_CONFIG_NAME}}"./build/windows/${{env.EXPORT_NAME}}.exe
+          godot --headless --verbose --export-debug "${{env.WIN_CONFIG_NAME}}" ./build/windows/${{env.EXPORT_NAME}}.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
