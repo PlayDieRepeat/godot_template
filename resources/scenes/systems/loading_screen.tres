@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RScene" load_steps=3 format=3 uid="uid://bf3loe6fuog1q"]
+
+[ext_resource type="Script" path="res://scripts/_resources/r_scene.gd" id="1_fwcp8"]
+[ext_resource type="PackedScene" uid="uid://d2xgqssq13ewq" path="res://scenes/systems/loading_screen.tscn" id="1_phpwh"]
+
+[resource]
+script = ExtResource("1_fwcp8")
+scene = ExtResource("1_phpwh")
+scene_id = "LoadingScreen"
+scene_path = "res://scenes/systems/loading_screen.tscn"

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0pq2ayardcjw"]
+
+[ext_resource type="Script" path="res://scripts/systems/gamester.gd" id="1_wrnya"]
+
+[node name="Gamester" type="Node"]
+script = ExtResource("1_wrnya")
