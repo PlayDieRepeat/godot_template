@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	
 	if (SoundManager.has_loaded == true) and (MusicManager.has_loaded == true) and (AudioBankRobber.has_loaded == true):
 		ready_to_start_game = true
-		if (use_ovveride == true) and (scene_override != null):
+		if (use_overide == true) and (scene_override != null):
 			Scenester.switch_scene(scene_override)
 		else:
 			Scenester.load_initial_scene()
