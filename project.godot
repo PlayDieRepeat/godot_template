@@ -11,14 +11,9 @@ config_version=5
 [application]
 
 config/name="godot_template"
-config/description="Game template."
-config/version="0.0.1"
-run/main_scene="res://scenes/menus/placeholder_node.tscn"
+run/main_scene="res://scenes/systems/initializer.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/image="res://assets/images/boot/PlayDieRepeat_Splash_640x360_primary_on_grey.png"
-boot_splash/use_filter=false
 config/icon="res://icon.svg"
-boot_splash/minimum_display_time=1800
 
 [audio]
 
@@ -34,9 +29,8 @@ manager/music/bus="Music"
 
 SoundManager="*res://addons/resonate/sound_manager/sound_manager.gd"
 MusicManager="*res://addons/resonate/music_manager/music_manager.gd"
-AudioBankRobber="*res://scenes/_autoloads/audio_bank_robber.tscn"
-Gamester="*res://scenes/_autoloads/gamester.tscn"
 Scenester="*res://scenes/_autoloads/scenester.tscn"
+AudioBankRobber="*res://scenes/_autoloads/audio_bank_robber.tscn"
 
 [display]
 
